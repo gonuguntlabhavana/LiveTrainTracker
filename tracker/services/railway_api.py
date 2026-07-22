@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime
 
-API_KEY = "rg_7e19673278a34901a270dafeaef792ec"
+API_KEY = "YOUR_API_KEY"
 
 BASE_URL = "https://api.railradar.in/v1"
 
