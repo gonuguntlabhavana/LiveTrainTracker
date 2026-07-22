@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Train Tracker
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>🚆 Train Tracker</h1>
+
+<p>Track Indian Railway Trains in Real Time</p>
+
+    </div>
+
+    <div class="search-box">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                id="trainInput"
+                name="train"
+                placeholder="Enter Train Name or Train Number"
+                autocomplete="off">
+
+            <div id="suggestions"></div>
+
+            <br><br>
+
+            <button type="submit" onclick="showLoading()">
+    🔍 Track Train
+</button>
+
+<p id="loading" style="display:none; color:green; margin-top:15px;">
+    ⏳ Searching train... Please wait...
+</p>
+        </form>
+
+    </div>
+
+    <br>
+<div class="features">
+
+
+    <a href="/favorites/" style="text-decoration:none; color:inherit;">
+
+        <div class="feature-card">
+
+            <h3>⭐ Favorites</h3>
+
+            <p>View and manage your favorite trains.</p>
+
+        </div>
+
+    </a>
+
+    <a href="/history/" style="text-decoration:none; color:inherit;">
+
+        <div class="feature-card">
+
+            <h3>📜 Search History</h3>
+
+            <p>View your recently searched trains.</p>
+
+        </div>
+
+    </a>
+
+    
+        </div>
+
+    
+
+</div>
+
+    <br>
+
+    {% if train %}
+
+    <div class="card">
+
+        <h2>Train Details</h2>
+
+        <p><b>Train Number :</b> {{ train.number }}</p>
+
+        <p><b>Train Name :</b> {{ train.name }}</p>
+
+        <p><b>From :</b> {{ train.from_station_name }}</p>
+
+        <p><b>To :</b> {{ train.to_station_name }}</p>
+
+        <p><b>Departure :</b> {{ train.departure }}</p>
+
+        <p><b>Arrival :</b> {{ train.arrival }}</p>
+
+        <p><b>Distance :</b> {{ train.distance }} km</p>
+
+        <br>
+
+        <button onclick="addFavorite('{{ train.number }}','{{ train.name }}')">
+            ❤️ Add to Favorites
+        </button>
+
+    </div>
+
+    {% endif %}
+
+    {% if request.GET.train and not train %}
+
+    <div class="card">
+
+        <h2>No Train Found</h2>
+
+        <p>Please enter a valid train name or train number.</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+<br>
+
+<div class="card">
+
+    <h2 style="text-align:center;">📊 Project Statistics</h2>
+
+    <br>
+
+    <table>
+
+        <tr>
+            <th>Total Trains</th>
+            <td>1000+</td>
+        </tr>
+
+        <tr>
+            <th>Live API</th>
+            <td>RailRadar</td>
+        </tr>
+
+        <tr>
+            <th>Backend</th>
+            <td>Django</td>
+        </tr>
+
+        <tr>
+            <th>Database</th>
+            <td>SQLite</td>
+        </tr>
+
+        <tr>
+            <th>Frontend</th>
+            <td>HTML, CSS, JavaScript</td>
+        </tr>
+
+    </table>
+
+</div>
+
+{% endblock %}

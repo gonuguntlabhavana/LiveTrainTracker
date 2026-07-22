@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About Train Tracker
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card">
+
+        <h1 style="text-align:center;">🚆 About Train Tracker</h1>
+
+        <p style="text-align:center;">
+            Train Tracker is a web application that helps users search Indian railway trains,
+            view train information, check the complete route, and manage favorite trains and
+            search history through a simple and user-friendly interface.
+        </p>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>🎯 Project Features</h2>
+
+        <ul>
+            <li>🔍 Search trains by Name or Number</li>
+            <li>🚆 View Train Information</li>
+            <li>🚉 Display Complete Train Route</li>
+            <li>⭐ Add and Remove Favorite Trains</li>
+            <li>📜 Automatically Save Search History</li>
+            <li>🗑 Delete Individual History</li>
+            <li>🧹 Clear All Search History</li>
+            <li>📱 Responsive User Interface</li>
+        </ul>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>💻 Technologies Used</h2>
+
+        <table>
+
+            <tr>
+                <th>Frontend</th>
+                <td>HTML, CSS, JavaScript</td>
+            </tr>
+
+            <tr>
+                <th>Backend</th>
+                <td>Python Django</td>
+            </tr>
+
+            <tr>
+                <th>Database</th>
+                <td>SQLite</td>
+            </tr>
+
+            <tr>
+                <th>API</th>
+                <td>RailRadar API</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>🚀 Project Workflow</h2>
+
+        <p>
+
+            User searches for a train by entering its name or number.
+            The application retrieves train information from the RailRadar API,
+            displays train details and the complete route, and allows users to
+            save favorite trains and maintain search history using the SQLite database.
+
+        </p>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>🎓 Purpose of the Project</h2>
+
+        <p>
+
+            This project was developed to learn Full Stack Web Development using Django
+            and to demonstrate API integration, database operations, and responsive web
+            application development.
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

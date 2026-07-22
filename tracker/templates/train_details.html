@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Live Train Status
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Train Information -->
+
+    <div class="card">
+
+        <h1 style="text-align:center;">
+            🚆 {{ live.trainName }}
+        </h1>
+
+        <hr><br>
+
+        <table>
+
+            <tr>
+                <th>Train Number</th>
+                <td>{{ live.train.number|default:"Not Available" }}</td>
+            </tr>
+
+            <tr>
+                <th>Train Type</th>
+                <td>{{ live.train.type|default:"Not Available" }}</td>
+            </tr>
+
+            <tr>
+                <th>Status</th>
+                <td>{{ live.status|default:"Not Available" }}</td>
+            </tr>
+
+            <tr>
+                <th>Current Status</th>
+                <td>{{ live.currentLocation.status|default:"Not Available" }}</td>
+            </tr>
+            <tr>
+    <th>Source Station</th>
+    <td>{{ train.source.name }}</td>
+</tr>
+
+<tr>
+    <th>Destination Station</th>
+    <td>{{ train.destination.name }}</td>
+</tr>
+
+<tr>
+    <th>Journey Duration</th>
+    <td>{{ journey_duration }}</td>
+</tr>
+
+<tr>
+    <th>Total Distance</th>
+    <td>{{ train.distance }} km</td>
+</tr>
+
+<tr>
+    <th>Running Days</th>
+    <td>
+        {% for day in train.runDays %}
+            {{ day }}
+        {% endfor %}
+    </td>
+</tr>
+        </table>
+
+        <br>
+
+        <button onclick="addFavorite('{{ live.train.number }}','{{ live.trainName }}')">
+            ❤️ Add to Favorites
+        </button>
+
+    </div>
+
+    <br>
+
+    <!-- Complete Route -->
+
+    <div class="card">
+
+        <h2>🚉 Complete Route</h2>
+
+        {% if details.route %}
+
+        <table>
+
+            <tr>
+                <th>S.No</th>
+                <th>Station</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Platform</th>
+                <th>Distance</th>
+                <th>Stop</th>
+            </tr>
+
+            {% for station in details.route %}
+
+            <tr>
+
+                <td>{{ station.sequence }}</td>
+
+                <td>{{ station.station.name }}</td>
+
+                <td>{{ station.arrival|default:"--" }}</td>
+
+                <td>{{ station.departure|default:"--" }}</td>
+
+                <td>{{ station.platform|default:"--" }}</td>
+
+                <td>{{ station.distance }} km</td>
+
+                <td>
+                    {% if station.isHalt %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <p>No route information available.</p>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <div style="text-align:center;">
+
+        <a href="/"
+           style="
+                background:#0d47a1;
+                color:white;
+                padding:12px 20px;
+                border-radius:8px;
+                text-decoration:none;
+           ">
+            🔍 Search Another Train
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
