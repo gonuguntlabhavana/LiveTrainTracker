@@ -116,15 +116,39 @@ http://127.0.0.1:8000/
 
 ## 📷 Screenshots
 
-Add screenshots of:
+### 🏠 Home Page
 
-- Home Page
-- Train Search
-- Train Details
-- Favorites
-- Search History
-- About Page
+![Home](screenshots/home.png)
 
+---
+
+### 🔍 Search Train
+
+![Search](screenshots/search.png)
+
+---
+
+### 🚆 Train Details
+
+![Details](screenshots/details.png)
+
+---
+
+### ⭐ Favorites
+
+![Favorites](screenshots/favorites.png)
+
+---
+
+### 📜 Search History
+
+![History](screenshots/history.png)
+
+---
+
+### ℹ️ About Page
+
+![About](screenshots/about.png)
 ---
 
 ## 🎯 Future Improvements
